@@ -22,7 +22,7 @@ public class CheeseController {
 
 
             model.addAttribute("cheeses", cheeses);
-            model.addAttribute("title", "The gouda stuff");
+            model.addAttribute("title", "The cheesy stuff");
 
             return "cheese/index";
         }
