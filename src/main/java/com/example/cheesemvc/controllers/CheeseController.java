@@ -22,7 +22,7 @@ public class CheeseController {
 
 
             model.addAttribute("cheeses", cheeses);
-            model.addAttribute("title", "The cheesy stuff");
+            model.addAttribute("title", "The gouda stuff");
 
             return "cheese/index";
         }
@@ -37,6 +37,23 @@ public class CheeseController {
             cheeses.add(cheeseName);
 
             // Redirect to /cheese
+            return "redirect:";
+        }
+
+        @RequestMapping (value = "remove", method = RequestMethod.GET)
+        public String displayRemoveCheeseForm(Model model) {
+            model.addAttribute("cheeses", cheeses);
+            model.addAttribute("title","Remove Cheese");
+            return "cheese/return";
+        }
+
+        @RequestMapping(value = "remove", method = RequestMethod.POST)
+        public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheese) {
+
+            for (String aCheese : cheese) {
+                cheeses.remove(aCheese);
+            }
+
             return "redirect:";
         }
 }
