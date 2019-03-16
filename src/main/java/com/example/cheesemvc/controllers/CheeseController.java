@@ -2,6 +2,7 @@ package com.example.cheesemvc.controllers;
 
 
         import com.example.cheesemvc.models.CheeseData;
+        import com.example.cheesemvc.models.CheeseType;
         import org.springframework.stereotype.Controller;
         import org.springframework.ui.Model;
         import org.springframework.validation.Errors;
@@ -9,6 +10,7 @@ package com.example.cheesemvc.controllers;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.RequestMethod;
         import org.springframework.web.bind.annotation.RequestParam;
+
 
         import javax.servlet.http.HttpServletRequest;
         import javax.validation.Valid;
@@ -37,6 +39,7 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese());
+        model.addAttribute("CheeseTypes", CheeseType.values());
         return "cheese/add";
     }
 
